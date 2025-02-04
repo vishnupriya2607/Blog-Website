@@ -11,7 +11,8 @@ app.use(cors())
 app.use(bodyParser.json());
 mongoose.connect('mongodb://localhost:27017/blog').then(() => console.log('Mongodb connected')).catch(err => console.log(err));
 //use router
-
+app.use('/api/posts',postRoutes);
+app.use('/api/categories',categoryRoutes);
 app.listen(PORT,()=>console.log(`server running on port ${PORT}`));
 
 
